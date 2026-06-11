@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX PRO - Curso de UX Design</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+}
+
+header{
+    background:#111827;
+    padding:20px 8%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#8b5cf6;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#8b5cf6;
+}
+
+.hero{
+    min-height:90vh;
+    background:linear-gradient(135deg,#8b5cf6,#2563eb);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:40px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:22px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.btn{
+    background:#facc15;
+    color:#111827;
+    border:none;
+    padding:15px 35px;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background:#fde047;
+}
+
+section{
+    padding:80px 8%;
+}
+
+.titulo{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.titulo h2{
+    font-size:40px;
+    color:#111827;
+    margin-bottom:15px;
+}
+
+.titulo p{
+    max-width:850px;
+    margin:auto;
+    line-height:1.7;
+    color:#555;
+    font-size:18px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.10);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#8b5cf6;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.card p{
+    line-height:1.6;
+    color:#444;
+}
+
+.faixa{
+    background:#111827;
+    color:white;
+}
+
+.faixa .titulo h2{
+    color:white;
+}
+
+.faixa .titulo p{
+    color:#d1d5db;
+}
+
+.lista{
+    max-width:900px;
+    margin:auto;
+}
+
+.lista div{
+    background:#1f2937;
+    margin-bottom:15px;
+    padding:18px;
+    border-radius:10px;
+    border-left:5px solid #8b5cf6;
+    font-size:17px;
+}
+
+.duplo{
+    background:#eef2ff;
+}
+
+.diamante{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.etapa{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.10);
+    border-top:6px solid #8b5cf6;
+}
+
+.etapa h3{
+    color:#8b5cf6;
+    margin-bottom:15px;
+}
+
+.resultados{
+    background:white;
+}
+
+.numero{
+    font-size:45px;
+    color:#8b5cf6;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.compra{
+    background:linear-gradient(135deg,#111827,#312e81);
+    color:white;
+    text-align:center;
+}
+
+.compra h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.compra p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+.caixa-preco{
+    background:white;
+    color:#111827;
+    max-width:500px;
+    margin:40px auto;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+.preco-antigo{
+    text-decoration:line-through;
+    color:#777;
+    font-size:22px;
+}
+
+.preco{
+    color:#8b5cf6;
+    font-size:55px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+footer{
+    background:#030712;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .titulo h2{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+    <div class="logo">UX PRO</div>
+
+    <ul>
+        <li><a href="#saibaMais">Saiba Mais</a></li>
+        <li><a href="#comprar">Comprar</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+    </ul>
+</nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Formação em Experiência do Usuário - UX</h1>
+
+        <p>
+            Aprenda a criar sites, aplicativos e produtos digitais mais bonitos,
+            fáceis de usar e pensados para as pessoas. Neste curso você aprenderá
+            UX Design, Heurísticas de Nielsen, Modelo Duplo Diamante, pesquisa com
+            usuários, prototipagem e testes de usabilidade.
+        </p>
+
+        <button class="btn" onclick="irParaCompra()">Quero fazer o curso</button>
+    </div>
+</section>
+
+<section id="saibaMais">
+
+    <div class="titulo">
+        <h2>Saiba Mais Sobre o Curso</h2>
+
+        <p>
+            A Formação UX PRO foi criada para quem deseja entrar na área de
+            Experiência do Usuário de forma simples, prática e completa.
+            O curso mostra como entender o usuário, identificar problemas,
+            criar soluções e melhorar interfaces digitais.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>O que é UX?</h3>
+            <p>
+                UX significa Experiência do Usuário. É a área que estuda como uma
+                pessoa se sente ao usar um site, aplicativo ou sistema.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Pesquisa com Usuários</h3>
+            <p>
+                Você aprenderá a fazer pesquisas, entrevistas e análises para
+                entender melhor as necessidades das pessoas.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Prototipagem</h3>
+            <p>
+                Aprenda a criar wireframes e protótipos para testar ideias antes
+                de desenvolver o produto final.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Testes de Usabilidade</h3>
+            <p>
+                Descubra se uma interface está fácil de usar e aprenda a melhorar
+                a experiência do usuário.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="faixa">
+
+    <div class="titulo">
+        <h2>Heurísticas de Nielsen</h2>
+
+        <p>
+            No curso, você aprenderá as 10 Heurísticas de Nielsen, que são
+            princípios usados para avaliar se uma interface é simples, clara
+            e fácil de utilizar.
+        </p>
+    </div>
+
+    <div class="lista">
+        <div>✓ Visibilidade do status do sistema</div>
+        <div>✓ Correspondência entre o sistema e o mundo real</div>
+        <div>✓ Controle e liberdade para o usuário</div>
+        <div>✓ Consistência e padrões visuais</div>
+        <div>✓ Prevenção de erros</div>
+        <div>✓ Reconhecimento em vez de memorização</div>
+        <div>✓ Flexibilidade e eficiência de uso</div>
+        <div>✓ Design estético e minimalista</div>
+        <div>✓ Mensagens de erro claras</div>
+        <div>✓ Ajuda e documentação quando necessário</div>
+    </div>
+
+</section>
+
+<section class="duplo">
+
+    <div class="titulo">
+        <h2>Modelo Duplo Diamante</h2>
+
+        <p>
+            Você também aprenderá o Modelo Duplo Diamante, uma metodologia usada
+            para entender problemas e criar soluções melhores através de quatro etapas.
+        </p>
+    </div>
+
+    <div class="diamante">
+
+        <div class="etapa">
+            <h3>1. Descobrir</h3>
+            <p>
+                Nesta etapa, o objetivo é pesquisar, observar e entender o problema
+                e os usuários envolvidos.
+            </p>
+        </div>
+
+        <div class="etapa">
+            <h3>2. Definir</h3>
+            <p>
+                Depois da pesquisa, é hora de organizar as informações e escolher
+                qual problema será resolvido.
+            </p>
+        </div>
+
+        <div class="etapa">
+            <h3>3. Desenvolver</h3>
+            <p>
+                Aqui são criadas ideias, soluções, fluxos, telas e protótipos
+                para resolver o problema.
+            </p>
+        </div>
+
+        <div class="etapa">
+            <h3>4. Entregar</h3>
+            <p>
+                A solução é testada, ajustada e preparada para ser entregue ao usuário.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="comprar" class="compra">
+
+    <h2>Comprar Curso</h2>
+
+    <p>
+        Garanta sua vaga na Formação UX PRO e comece hoje mesmo a aprender
+        Experiência do Usuário de forma prática.
+    </p>
+
+    <div class="caixa-preco">
+
+        <div class="preco-antigo">De R$299,90</div>
+
+        <div class="preco">R$97,90</div>
+
+        <p>
+            Pagamento único<br>
+            Acesso vitalício<br>
+            Certificado de conclusão<br>
+            Conteúdo completo para iniciantes
+        </p>
+
+        <br>
+
+        <button class="btn" onclick="comprarCurso()">Comprar Agora</button>
+
+    </div>
+
+</section>
+
+<section id="resultados" class="resultados">
+
+    <div class="titulo">
+        <h2>Resultados dos Alunos</h2>
+
+        <p>
+            A Formação UX PRO ajuda alunos iniciantes a entenderem melhor
+            como criar projetos digitais com foco no usuário.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="numero">+5.000</div>
+            <h3>Alunos formados</h3>
+            <p>
+                Pessoas que já aprenderam os principais conceitos de UX Design.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="numero">97%</div>
+            <h3>Satisfação</h3>
+            <p>
+                Alunos satisfeitos com a didática simples e prática do curso.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="numero">+200</div>
+            <h3>Projetos criados</h3>
+            <p>
+                Projetos de sites, aplicativos e sistemas desenvolvidos pelos alunos.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 UX PRO - Formação em Experiência do Usuário</p>
+</footer>
+
+<script>
+function irParaCompra(){
+    document.getElementById("comprar").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+function comprarCurso(){
+    alert("Obrigado pelo interesse! Sua inscrição no curso UX PRO foi iniciada.");
+}
+</script>
+
+</body>
+</html>
